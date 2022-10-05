@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-const SPEED = 100
+const SPEED = 250
 var direction = Vector2(0, -1)
 
 func _input(event: InputEvent) -> void:
@@ -19,3 +19,16 @@ func _input(event: InputEvent) -> void:
 
 func _physics_process(delta: float) -> void:
 	move_and_slide(direction * SPEED)
+	
+	if $Here.is_colliding():
+		var items = $Here.get_collider()
+		var hit = $Here.get_collision_point()
+		var pos = items.world_to_map(hit)
+		var tile = items.get_cell_autotile_coord(pos.x, pos.y)
+
+		if tile == Vector2(0, 0):
+			$Nom.play()
+		elif tile == Vector2(1, 0):
+			$NomNomNom.play()
+		
+		items.set_cellv(pos, -1)
