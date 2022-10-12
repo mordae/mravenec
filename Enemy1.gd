@@ -12,7 +12,7 @@ const RIGHT = Vector2(+1, 0)
 
 const DIRECTIONS = [UP, RIGHT, DOWN, LEFT]
 
-var patience = (MIN_PATIENCE + MAX_PATIENCE) / 2
+var patience = (MIN_PATIENCE + MAX_PATIENCE) / 2.0
 var direction = 0
 
 func _enter_tree() -> void:
