@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/543386__thedragonsspark__nom-noise.ogg-5e351e43f4da01c9ecae6c8ad768e22e.oggstr"
+
+[deps]
+
+source_file="res://sounds/543386__thedragonsspark__nom-noise.ogg"
+dest_files=[ "res://.import/543386__thedragonsspark__nom-noise.ogg-5e351e43f4da01c9ecae6c8ad768e22e.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
