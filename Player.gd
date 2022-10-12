@@ -3,6 +3,9 @@ extends KinematicBody2D
 const SPEED = 250
 var direction = Vector2(0, -1)
 
+func _enter_tree() -> void:
+	$Anim.play("walk")
+
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed('ui_left'):
 		direction = Vector2(-1, 0)
