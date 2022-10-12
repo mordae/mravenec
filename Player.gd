@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 const SPEED = 250
 var direction = Vector2(0, -1)
+var points = 0
 
 func _enter_tree() -> void:
 	$Anim.play("walk")
@@ -31,7 +32,12 @@ func _physics_process(delta: float) -> void:
 
 		if tile == Vector2(0, 0):
 			$Nom.play()
+			points += 1
 		elif tile == Vector2(1, 0):
 			$NomNomNom.play()
+			points += 5
 		
 		items.set_cellv(pos, -1)
+		
+		var score = get_parent().get_node("GUI/Score")
+		score.text = str(points)

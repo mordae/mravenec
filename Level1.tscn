@@ -1,4 +1,4 @@
-[gd_scene load_steps=117 format=2]
+[gd_scene load_steps=120 format=2]
 
 [ext_resource path="res://tileset.png" type="Texture" id=1]
 [ext_resource path="res://player1.png" type="Texture" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://music/Audiorezout - Another Road - 15 - Catch.mp3" type="AudioStream" id=4]
 [ext_resource path="res://items.png" type="Texture" id=5]
 [ext_resource path="res://sounds/543386__thedragonsspark__nom-noise.ogg" type="AudioStream" id=7]
+[ext_resource path="res://fonts/Caveat.tres" type="DynamicFont" id=8]
+[ext_resource path="res://fonts/Caveat.ttf" type="DynamicFontData" id=9]
 [ext_resource path="res://sounds/172135__paulmorek__nom-c-06.ogg" type="AudioStream" id=10]
 
 [sub_resource type="ConvexPolygonShape2D" id=24]
@@ -1005,6 +1007,10 @@ animations = [ {
 "speed": 8.0
 } ]
 
+[sub_resource type="DynamicFont" id=138]
+size = 128
+font_data = ExtResource( 9 )
+
 [node name="Level1" type="Node2D"]
 
 [node name="Map" type="TileMap" parent="."]
@@ -1050,3 +1056,33 @@ volume_db = 3.0
 stream = ExtResource( 4 )
 volume_db = -6.0
 autoplay = true
+
+[node name="GUI" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="ScoreLabel" type="Label" parent="GUI"]
+anchor_left = 48.0
+anchor_right = 48.0
+margin_left = -320.0
+margin_top = 105.0
+margin_right = -59.0001
+margin_bottom = 187.0
+grow_horizontal = 0
+custom_fonts/font = ExtResource( 8 )
+text = "points"
+align = 2
+valign = 1
+
+[node name="Score" type="Label" parent="GUI"]
+anchor_left = 48.0
+anchor_right = 48.0
+margin_left = -328.0
+margin_top = -22.0
+margin_right = -67.0001
+margin_bottom = 140.0
+grow_horizontal = 0
+custom_fonts/font = SubResource( 138 )
+text = "0"
+align = 2
+valign = 1
