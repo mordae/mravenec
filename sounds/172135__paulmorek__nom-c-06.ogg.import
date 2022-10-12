@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/172135__paulmorek__nom-c-06.ogg-8b0e27c3ec606add825ce09504d71202.oggstr"
+
+[deps]
+
+source_file="res://sounds/172135__paulmorek__nom-c-06.ogg"
+dest_files=[ "res://.import/172135__paulmorek__nom-c-06.ogg-8b0e27c3ec606add825ce09504d71202.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
