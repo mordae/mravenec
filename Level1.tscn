@@ -5,8 +5,8 @@
 [ext_resource path="res://Player.gd" type="Script" id=3]
 [ext_resource path="res://music/Audiorezout - Another Road - 15 - Catch.mp3" type="AudioStream" id=4]
 [ext_resource path="res://items.png" type="Texture" id=5]
-[ext_resource path="res://sounds/543386__thedragonsspark__nom-noise.wav" type="AudioStream" id=6]
-[ext_resource path="res://sounds/172135__paulmorek__nom-c-06.wav" type="AudioStream" id=7]
+[ext_resource path="res://sounds/543386__thedragonsspark__nom-noise.ogg" type="AudioStream" id=7]
+[ext_resource path="res://sounds/172135__paulmorek__nom-c-06.ogg" type="AudioStream" id=10]
 
 [sub_resource type="ConvexPolygonShape2D" id=24]
 points = PoolVector2Array( 128, 128, 0, 128, 0, 0, 128, 0 )
@@ -1040,10 +1040,10 @@ collision_mask = 2
 collide_with_areas = true
 
 [node name="Nom" type="AudioStreamPlayer2D" parent="Player"]
-stream = ExtResource( 6 )
+stream = ExtResource( 7 )
 
 [node name="NomNomNom" type="AudioStreamPlayer2D" parent="Player"]
-stream = ExtResource( 7 )
+stream = ExtResource( 10 )
 volume_db = 3.0
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
