@@ -23,9 +23,9 @@ func _input(event: InputEvent) -> void:
 func _physics_process(delta: float) -> void:
 	move_and_slide(direction * SPEED)
 	
-	if $Here.is_colliding():
-		var items = $Here.get_collider()
-		var hit = $Here.get_collision_point()
+	if $Mouth.is_colliding():
+		var items = $Mouth.get_collider()
+		var hit = $Mouth.get_collision_point()
 		var pos = items.world_to_map(hit)
 		var tile = items.get_cell_autotile_coord(pos.x, pos.y)
 
