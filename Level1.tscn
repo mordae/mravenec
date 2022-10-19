@@ -339,15 +339,17 @@ stream = ExtResource( 7 )
 
 [node name="Ouch" type="Label" parent="Player"]
 visible = false
-margin_left = 12.0
-margin_top = -68.0
-margin_right = 131.0
-margin_bottom = -15.0
+margin_left = -146.0
+margin_top = -29.0
+margin_right = 147.0
+margin_bottom = 80.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 0.498039 )
 custom_fonts/font = SubResource( 145 )
 text = "Ouch!
-That hurt."
+That hurt.
+
+[Press SPACE to restart.]"
 
 [node name="Enemy1" type="KinematicBody2D" parent="."]
 position = Vector2( 832, 832 )

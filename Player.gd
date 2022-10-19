@@ -18,6 +18,9 @@ func _input(event: InputEvent) -> void:
 		get_tree().quit()
 	
 	if dead:
+		if event.is_action('ui_accept'):
+			get_tree().reload_current_scene()
+		
 		return
 	
 	if event.is_action_pressed('ui_left'):
