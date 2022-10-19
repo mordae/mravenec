@@ -8,10 +8,17 @@ const RIGHT = Vector2(+1, 0)
 var dead = false
 var speed = 250
 var direction = UP
-var points = 0
 
 func _enter_tree() -> void:
-	$Anim.play("walk")
+	$Anim.play('default')
+	var score = get_parent().get_node("GUI/Score")
+	score.text = str(Game.points)
+
+func die() -> void:
+	dead = true
+	collision_layer = 0
+	$Anim.stop()
+	$Ouch.show()
 
 func _input(event: InputEvent) -> void:
 	if event.is_action('ui_cancel'):
@@ -19,7 +26,8 @@ func _input(event: InputEvent) -> void:
 	
 	if dead:
 		if event.is_action('ui_accept'):
-			get_tree().reload_current_scene()
+			get_tree().change_scene("res://Level1.tscn")
+			Game.reset()
 		
 		return
 	
@@ -51,14 +59,16 @@ func _physics_process(delta: float) -> void:
 		
 		if cell >= 0:
 			$Chargeup.play()
-			points += 1
+			Game.points += 1
 			items.set_cellv(pos, -1)
+	
+	var score = get_parent().get_node("GUI/Score")
+	score.text = str(Game.points)
+	
+	var exiting = $Exiter.get_overlapping_areas()
+	
+	if exiting:
+		var scene_name = get_tree().get_current_scene().get_name()
 		
-		var score = get_parent().get_node("GUI/Score")
-		score.text = str(points)
-
-func die() -> void:
-	dead = true
-	collision_layer = 0
-	$Anim.stop()
-	$Ouch.show()
+		if scene_name == 'Level1':
+			get_tree().change_scene("res://Level2.tscn")

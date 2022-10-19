@@ -1,14 +1,14 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=105 format=2]
 
 [ext_resource path="res://sprites/items/orbs.png" type="Texture" id=1]
-[ext_resource path="res://sprites/player/ship.png" type="Texture" id=2]
-[ext_resource path="res://Player.gd" type="Script" id=3]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://music/Audiorezout - Another Road - 15 - Catch.mp3" type="AudioStream" id=4]
 [ext_resource path="res://tilesets/station.png" type="Texture" id=5]
 [ext_resource path="res://sounds/metal-design-explosion-13491.mp3" type="AudioStream" id=6]
-[ext_resource path="res://sounds/sci-fi-charge-up-37395.mp3" type="AudioStream" id=7]
 [ext_resource path="res://sprites/enemy/drakir.png" type="Texture" id=8]
 [ext_resource path="res://Enemy1.gd" type="Script" id=9]
+[ext_resource path="res://sprites/portal/portal.png" type="Texture" id=10]
+[ext_resource path="res://Portal.gd" type="Script" id=11]
 [ext_resource path="res://fonts/Caveat.ttf" type="DynamicFontData" id=12]
 
 [sub_resource type="ConvexPolygonShape2D" id=146]
@@ -221,43 +221,6 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 } ]
 0/z_index = 0
 
-[sub_resource type="CapsuleShape2D" id=134]
-radius = 27.0
-height = 0.0
-
-[sub_resource type="AtlasTexture" id=165]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 0, 0, 91, 100 )
-
-[sub_resource type="AtlasTexture" id=166]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 91, 0, 91, 100 )
-
-[sub_resource type="AtlasTexture" id=167]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 182, 0, 91, 100 )
-
-[sub_resource type="SpriteFrames" id=133]
-animations = [ {
-"frames": [ SubResource( 165 ), SubResource( 166 ), SubResource( 167 ), SubResource( 166 ) ],
-"loop": true,
-"name": "walk",
-"speed": 8.0
-} ]
-
-[sub_resource type="CapsuleShape2D" id=168]
-radius = 27.0
-height = 0.0
-
-[sub_resource type="DynamicFont" id=145]
-size = 32
-extra_spacing_top = -8
-extra_spacing_bottom = -8
-font_data = ExtResource( 12 )
-
 [sub_resource type="CapsuleShape2D" id=138]
 radius = 30.0
 height = 0.0
@@ -300,6 +263,337 @@ font_data = ExtResource( 12 )
 size = 128
 font_data = ExtResource( 12 )
 
+[sub_resource type="AtlasTexture" id=237]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 0, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=238]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 128, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=239]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 256, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=240]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 384, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=241]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 512, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=242]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 640, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=243]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 768, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=244]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 896, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=245]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 0, 128, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=246]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 128, 128, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=247]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 256, 128, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=248]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 384, 128, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=249]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 512, 128, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=250]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 640, 128, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=251]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 768, 128, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=252]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 896, 128, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=253]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 0, 256, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=254]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 128, 256, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=255]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 256, 256, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=256]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 384, 256, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=257]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 512, 256, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=258]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 640, 256, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=259]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 768, 256, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=260]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 896, 256, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=261]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 0, 384, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=262]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 128, 384, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=263]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 256, 384, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=264]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 384, 384, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=265]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 512, 384, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=266]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 640, 384, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=267]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 768, 384, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=268]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 896, 384, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=269]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 0, 512, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=270]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 128, 512, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=271]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 256, 512, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=272]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 384, 512, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=273]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 512, 512, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=274]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 640, 512, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=275]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 768, 512, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=276]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 896, 512, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=277]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 0, 640, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=278]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 128, 640, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=279]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 256, 640, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=280]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 384, 640, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=281]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 512, 640, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=282]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 640, 640, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=283]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 768, 640, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=284]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 896, 640, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=285]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 0, 768, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=286]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 128, 768, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=287]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 256, 768, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=288]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 384, 768, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=289]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 512, 768, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=290]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 640, 768, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=291]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 768, 768, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=292]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 896, 768, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=293]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 0, 896, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=294]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 128, 896, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=295]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 256, 896, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=296]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 384, 896, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=297]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 512, 896, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=298]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 640, 896, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=299]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 768, 896, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=300]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 896, 896, 128, 128 )
+
+[sub_resource type="SpriteFrames" id=236]
+animations = [ {
+"frames": [ SubResource( 237 ), SubResource( 238 ), SubResource( 239 ), SubResource( 240 ), SubResource( 241 ), SubResource( 242 ), SubResource( 243 ), SubResource( 244 ), SubResource( 245 ), SubResource( 246 ), SubResource( 247 ), SubResource( 248 ), SubResource( 249 ), SubResource( 250 ), SubResource( 251 ), SubResource( 252 ), SubResource( 253 ), SubResource( 254 ), SubResource( 255 ), SubResource( 256 ), SubResource( 257 ), SubResource( 258 ), SubResource( 259 ), SubResource( 260 ), SubResource( 261 ), SubResource( 262 ), SubResource( 263 ), SubResource( 264 ), SubResource( 265 ), SubResource( 266 ), SubResource( 267 ), SubResource( 268 ), SubResource( 269 ), SubResource( 270 ), SubResource( 271 ), SubResource( 272 ), SubResource( 273 ), SubResource( 274 ), SubResource( 275 ), SubResource( 276 ), SubResource( 277 ), SubResource( 278 ), SubResource( 279 ), SubResource( 280 ), SubResource( 281 ), SubResource( 282 ), SubResource( 283 ), SubResource( 284 ), SubResource( 285 ), SubResource( 286 ), SubResource( 287 ), SubResource( 288 ), SubResource( 289 ), SubResource( 290 ), SubResource( 291 ), SubResource( 292 ), SubResource( 293 ), SubResource( 294 ), SubResource( 295 ), SubResource( 296 ), SubResource( 297 ), SubResource( 298 ), SubResource( 299 ), SubResource( 300 ) ],
+"loop": true,
+"name": "default",
+"speed": 30.0
+} ]
+
+[sub_resource type="CircleShape2D" id=301]
+radius = 51.0
+
 [node name="Level1" type="Node2D"]
 
 [node name="Map" type="TileMap" parent="."]
@@ -314,42 +608,7 @@ collision_mask = 2
 format = 1
 tile_data = PoolIntArray( 65537, 0, 393216, 262148, 0, 131072, 262168, 0, 458752, 327707, 0, 327680, 524299, 0, 0, 851975, 0, 262144, 983041, 0, 65536, 983068, 0, 196608 )
 
-[node name="Player" type="KinematicBody2D" parent="."]
-position = Vector2( 1024, 512 )
-collision_layer = 4
-script = ExtResource( 3 )
-
-[node name="Shape" type="CollisionShape2D" parent="Player"]
-shape = SubResource( 134 )
-
-[node name="Anim" type="AnimatedSprite" parent="Player"]
-scale = Vector2( 0.5, 0.5 )
-frames = SubResource( 133 )
-animation = "walk"
-
-[node name="Collector" type="Area2D" parent="Player"]
-collision_layer = 0
-collision_mask = 2
-
-[node name="Shape" type="CollisionShape2D" parent="Player/Collector"]
-shape = SubResource( 168 )
-
-[node name="Chargeup" type="AudioStreamPlayer2D" parent="Player"]
-stream = ExtResource( 7 )
-
-[node name="Ouch" type="Label" parent="Player"]
-visible = false
-margin_left = -146.0
-margin_top = -29.0
-margin_right = 147.0
-margin_bottom = 80.0
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 0.498039 )
-custom_fonts/font = SubResource( 145 )
-text = "Ouch!
-That hurt.
-
-[Press SPACE to restart.]"
+[node name="Player" parent="." instance=ExtResource( 2 )]
 
 [node name="Enemy1" type="KinematicBody2D" parent="."]
 position = Vector2( 832, 832 )
@@ -437,3 +696,17 @@ custom_fonts/font = SubResource( 144 )
 text = "0"
 align = 2
 valign = 1
+
+[node name="Portal" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( 896, 832 )
+frames = SubResource( 236 )
+script = ExtResource( 11 )
+
+[node name="Area" type="Area2D" parent="Portal"]
+collision_layer = 8
+collision_mask = 0
+monitorable = false
+
+[node name="Shape" type="CollisionShape2D" parent="Portal/Area"]
+shape = SubResource( 301 )
