@@ -14,12 +14,15 @@ func _enter_tree() -> void:
 	$Anim.play("walk")
 
 func _input(event: InputEvent) -> void:
+	if event.is_action('ui_cancel'):
+		get_tree().quit()
+	
 	if dead:
 		return
 	
 	if event.is_action_pressed('ui_left'):
 		direction = LEFT
-		$Anim.rotation_degrees = 270
+		$Anim.rotation_degrees = -90
 	elif event.is_action_pressed('ui_right'):
 		direction = RIGHT
 		$Anim.rotation_degrees = 90
@@ -36,20 +39,17 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide(direction * speed)
 	
-	if $Mouth.is_colliding():
-		var items = $Mouth.get_collider()
-		var hit = $Mouth.get_collision_point()
-		var pos = items.world_to_map(hit)
-		var tile = items.get_cell_autotile_coord(pos.x, pos.y)
-
-		if tile == Vector2(0, 0):
-			$Nom.play()
-			points += 1
-		elif tile == Vector2(1, 0):
-			$NomNomNom.play()
-			points += 5
+	var collected = $Collector.get_overlapping_bodies()
+	
+	if collected:
+		var items = collected[0]
+		var pos = items.world_to_map(global_position)
+		var cell = items.get_cellv(pos)
 		
-		items.set_cellv(pos, -1)
+		if cell >= 0:
+			$Chargeup.play()
+			points += 1
+			items.set_cellv(pos, -1)
 		
 		var score = get_parent().get_node("GUI/Score")
 		score.text = str(points)

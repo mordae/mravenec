@@ -23,7 +23,7 @@ func _physics_process(delta: float) -> void:
 	var eaten = $DangerZone.get_overlapping_bodies()
 	
 	if eaten:
-		$Crunch.play()
+		$Explosion.play()
 		eaten[0].die()
 	
 	patience -= delta
@@ -35,10 +35,10 @@ func _physics_process(delta: float) -> void:
 		direction = (direction + 1) % len(DIRECTIONS)
 		
 		if DIRECTIONS[direction] == UP:
-			$Anim.rotation_degrees = 0
+			rotation_degrees = 180
 		elif DIRECTIONS[direction] == RIGHT:
-			$Anim.rotation_degrees = 90
+			rotation_degrees = -90
 		elif DIRECTIONS[direction] == DOWN:
-			$Anim.rotation_degrees = 180
+			rotation_degrees = 0
 		elif DIRECTIONS[direction] == LEFT:
-			$Anim.rotation_degrees = 270
+			rotation_degrees = 90
