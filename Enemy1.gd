@@ -44,3 +44,11 @@ func _physics_process(delta: float) -> void:
 			rotation_degrees = 0
 		elif DIRECTIONS[direction] == LEFT:
 			rotation_degrees = 90
+	
+	var nearby = $DroneZone.get_overlapping_bodies()
+	if nearby:
+		var distance = abs(position.distance_to(nearby[0].position))
+		var radius = $DroneZone/Shape.shape.radius
+		$Drone.volume_db = min((distance / radius) * -20 + 20, 6)
+	else:
+		$Drone.volume_db = -80

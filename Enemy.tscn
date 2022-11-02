@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Enemy1.gd" type="Script" id=1]
+[ext_resource path="res://sounds/metal-design-explosion-13491.mp3" type="AudioStream" id=2]
+[ext_resource path="res://sounds/24073__lg__drone14.mp3" type="AudioStream" id=3]
+
+[sub_resource type="CapsuleShape2D" id=138]
+radius = 30.0
+height = 0.0
+
+[sub_resource type="CapsuleShape2D" id=142]
+radius = 30.0
+height = 0.0
+
+[sub_resource type="CapsuleShape2D" id=143]
+radius = 300.0
+height = 0.0
+
+[node name="Enemy1" type="KinematicBody2D"]
+collision_layer = 0
+script = ExtResource( 1 )
+
+[node name="Shape" type="CollisionShape2D" parent="."]
+shape = SubResource( 138 )
+
+[node name="DangerZone" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="Shape" type="CollisionShape2D" parent="DangerZone"]
+shape = SubResource( 142 )
+
+[node name="DroneZone" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="Shape" type="CollisionShape2D" parent="DroneZone"]
+shape = SubResource( 143 )
+
+[node name="Explosion" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 2 )
+volume_db = 12.0
+
+[node name="Drone" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+volume_db = -80.0
+autoplay = true
