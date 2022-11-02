@@ -1,7 +1,6 @@
 extends KinematicBody2D
 
-const SPEED = 175
-
+const SPEED_UP = 0.5
 const MIN_PATIENCE = 1
 const MAX_PATIENCE = 5
 
@@ -14,12 +13,15 @@ const DIRECTIONS = [UP, RIGHT, DOWN, LEFT]
 
 var patience = (MIN_PATIENCE + MAX_PATIENCE) / 2.0
 var direction = 0
+var speed = 175
 
 func _enter_tree() -> void:
 	$Anim.play("walk")
 
 func _physics_process(delta: float) -> void:
-	var move = move_and_slide(DIRECTIONS[direction] * SPEED)
+	speed += SPEED_UP * delta
+	
+	var move = move_and_slide(DIRECTIONS[direction] * speed)
 	var eaten = $DangerZone.get_overlapping_bodies()
 	
 	if eaten:
