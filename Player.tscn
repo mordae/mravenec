@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://sprites/player/ship.png" type="Texture" id=2]
 [ext_resource path="res://sounds/sci-fi-charge-up-37395.mp3" type="AudioStream" id=3]
 [ext_resource path="res://fonts/Caveat.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://sounds/347172__davidsraba__coin-pickup-sound.mp3" type="AudioStream" id=5]
 
 [sub_resource type="CapsuleShape2D" id=134]
 radius = 27.0
@@ -70,6 +71,10 @@ shape = SubResource( 168 )
 
 [node name="Chargeup" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )
+
+[node name="Pickup" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+volume_db = -6.0
 
 [node name="Ouch" type="Label" parent="."]
 visible = false

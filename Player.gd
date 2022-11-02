@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+const SPEED_UP_PER_BOOST = 20
+
 const UP    = Vector2(0, -1)
 const DOWN  = Vector2(0, +1)
 const LEFT  = Vector2(-1, 0)
@@ -57,10 +59,14 @@ func _physics_process(delta: float) -> void:
 		var pos = items.world_to_map(global_position)
 		var cell = items.get_cellv(pos)
 		
-		if cell >= 0:
+		if cell == 0:
 			$Chargeup.play()
+			speed += SPEED_UP_PER_BOOST
+		elif cell == 1:
+			$Pickup.play()
 			Game.points += 1
-			items.set_cellv(pos, -1)
+		
+		items.set_cellv(pos, -1)
 	
 	var score = get_parent().get_node("GUI/Score")
 	score.text = str(Game.points)
