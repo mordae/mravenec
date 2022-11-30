@@ -8,6 +8,22 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Node",
+"class": "RandomBehavior",
+"language": "GDScript",
+"path": "res://behavior/RandomBehavior.gd"
+}, {
+"base": "Node",
+"class": "SeekingBehavior",
+"language": "GDScript",
+"path": "res://behavior/SeekingBehavior.gd"
+} ]
+_global_script_class_icons={
+"RandomBehavior": "",
+"SeekingBehavior": ""
+}
+
 [application]
 
 config/name="Mravenec"

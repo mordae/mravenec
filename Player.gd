@@ -28,7 +28,8 @@ func _input(event: InputEvent) -> void:
 	
 	if dead:
 		if event.is_action('ui_accept'):
-			get_tree().change_scene("res://Level1.tscn")
+			var res = get_tree().change_scene("res://Level1.tscn")
+			assert(res == OK)
 			Game.reset()
 		
 		return
@@ -46,11 +47,11 @@ func _input(event: InputEvent) -> void:
 		direction = DOWN
 		$Anim.rotation_degrees = 180
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if dead:
 		return
 	
-	move_and_slide(direction * speed)
+	var _moved = move_and_slide(direction * speed)
 	
 	var collected = $Collector.get_overlapping_bodies()
 	
@@ -77,4 +78,5 @@ func _physics_process(delta: float) -> void:
 		var scene_name = get_tree().get_current_scene().get_name()
 		
 		if scene_name == 'Level1':
-			get_tree().change_scene("res://Level2.tscn")
+			var res = get_tree().change_scene("res://Level2.tscn")
+			assert(res == OK)

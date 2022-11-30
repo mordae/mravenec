@@ -5,7 +5,7 @@ func _ready() -> void:
 	play("default")
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	var items = get_parent().get_node('Items')
 	var existing = items.get_used_cells()
 	
