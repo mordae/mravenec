@@ -13,7 +13,7 @@ var direction = UP
 
 func _enter_tree() -> void:
 	$Anim.play('default')
-	var score = get_parent().get_node("GUI/Score")
+	var score = $"../Canvas/GUI/Score"
 	score.text = str(Game.points)
 
 func die() -> void:
@@ -69,7 +69,7 @@ func _physics_process(_delta: float) -> void:
 		
 		items.set_cellv(pos, -1)
 	
-	var score = get_parent().get_node("GUI/Score")
+	var score = $"../Canvas/GUI/Score"
 	score.text = str(Game.points)
 	
 	var exiting = $Exiter.get_overlapping_areas()

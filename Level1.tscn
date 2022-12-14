@@ -320,14 +320,6 @@ animations = [ {
 "speed": 8.0
 } ]
 
-[sub_resource type="DynamicFont" id=143]
-size = 48
-font_data = ExtResource( 12 )
-
-[sub_resource type="DynamicFont" id=144]
-size = 128
-font_data = ExtResource( 12 )
-
 [sub_resource type="AtlasTexture" id=237]
 flags = 4
 atlas = ExtResource( 10 )
@@ -659,6 +651,14 @@ animations = [ {
 [sub_resource type="CircleShape2D" id=301]
 radius = 51.0
 
+[sub_resource type="DynamicFont" id=143]
+size = 48
+font_data = ExtResource( 12 )
+
+[sub_resource type="DynamicFont" id=144]
+size = 128
+font_data = ExtResource( 12 )
+
 [node name="Level1" type="Node2D"]
 
 [node name="Map" type="TileMap" parent="."]
@@ -716,11 +716,27 @@ stream = ExtResource( 4 )
 volume_db = -9.0
 autoplay = true
 
-[node name="GUI" type="Control" parent="."]
+[node name="Portal" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( 896, 832 )
+frames = SubResource( 236 )
+script = ExtResource( 11 )
+
+[node name="Area" type="Area2D" parent="Portal"]
+collision_layer = 8
+collision_mask = 0
+monitorable = false
+
+[node name="Shape" type="CollisionShape2D" parent="Portal/Area"]
+shape = SubResource( 301 )
+
+[node name="Canvas" type="CanvasLayer" parent="."]
+
+[node name="GUI" type="Control" parent="Canvas"]
 margin_right = 40.0
 margin_bottom = 40.0
 
-[node name="ScoreLabel" type="Label" parent="GUI"]
+[node name="ScoreLabel" type="Label" parent="Canvas/GUI"]
 anchor_left = 48.0
 anchor_right = 48.0
 margin_left = -137.0
@@ -735,7 +751,7 @@ text = "points"
 align = 2
 valign = 1
 
-[node name="Score" type="Label" parent="GUI"]
+[node name="Score" type="Label" parent="Canvas/GUI"]
 anchor_left = 48.0
 anchor_right = 48.0
 margin_left = -301.0
@@ -749,17 +765,3 @@ custom_fonts/font = SubResource( 144 )
 text = "0"
 align = 2
 valign = 1
-
-[node name="Portal" type="AnimatedSprite" parent="."]
-visible = false
-position = Vector2( 896, 832 )
-frames = SubResource( 236 )
-script = ExtResource( 11 )
-
-[node name="Area" type="Area2D" parent="Portal"]
-collision_layer = 8
-collision_mask = 0
-monitorable = false
-
-[node name="Shape" type="CollisionShape2D" parent="Portal/Area"]
-shape = SubResource( 301 )
