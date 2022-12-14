@@ -676,6 +676,17 @@ tile_data = PoolIntArray( 65537, 0, 393216, 65538, 1, 0, 65539, 1, 0, 65540, 1, 
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 
+[node name="Camera" type="Camera2D" parent="Player"]
+rotating = true
+current = true
+zoom = Vector2( 0.75, 0.75 )
+process_mode = 0
+limit_left = 0
+limit_top = 0
+limit_right = 1920
+limit_bottom = 1088
+editor_draw_limits = true
+
 [node name="Enemy1" parent="." instance=ExtResource( 6 )]
 position = Vector2( 640, 768 )
 
