@@ -15,6 +15,9 @@ func _enter_tree() -> void:
 	$Anim.play('default')
 	var score = $"../Canvas/GUI/Score"
 	score.text = str(Game.points)
+	
+	if OS.has_touchscreen_ui_hint():
+		$Camera.zoom = Vector2(0.5, 0.5)
 
 func die() -> void:
 	dead = true
