@@ -2,14 +2,9 @@ extends KinematicBody2D
 
 const SPEED_UP_PER_BOOST = 20
 
-const UP    = Vector2(0, -1)
-const DOWN  = Vector2(0, +1)
-const LEFT  = Vector2(-1, 0)
-const RIGHT = Vector2(+1, 0)
-
 var dead = false
 var speed = 250
-var direction = UP
+var direction = Vector2.UP
 
 func _enter_tree() -> void:
 	$Anim.play('default')
@@ -48,31 +43,31 @@ func _input(event: InputEvent) -> void:
 			
 			if abs(dx) > abs(dy):
 				if dx > 0:
-					direction = RIGHT
+					direction = Vector2.RIGHT
 				else:
-					direction = LEFT
+					direction = Vector2.LEFT
 			else:
 				if dy > 0:
-					direction = DOWN
+					direction = Vector2.DOWN
 				else:
-					direction = UP
+					direction = Vector2.UP
 	
 	if event.is_action_pressed('ui_left'):
-		direction = LEFT
+		direction = Vector2.LEFT
 	elif event.is_action_pressed('ui_right'):
-		direction = RIGHT
+		direction = Vector2.RIGHT
 	elif event.is_action_pressed('ui_up'):
-		direction = UP
+		direction = Vector2.UP
 	elif event.is_action_pressed('ui_down'):
-		direction = DOWN
+		direction = Vector2.DOWN
 	
-	if direction == LEFT:
+	if direction == Vector2.LEFT:
 		$Anim.rotation_degrees = -90
-	elif direction == RIGHT:
+	elif direction == Vector2.RIGHT:
 		$Anim.rotation_degrees = 90
-	elif direction == UP:
+	elif direction == Vector2.UP:
 		$Anim.rotation_degrees = 0
-	elif direction == DOWN:
+	elif direction == Vector2.DOWN:
 		$Anim.rotation_degrees = 180
 
 func _physics_process(_delta: float) -> void:
