@@ -6,6 +6,9 @@ var dead = false
 var speed = 250
 var direction = Vector2.UP
 
+var touch_base = Vector2.ZERO
+var touch_enabled = false
+
 func _enter_tree() -> void:
 	$Anim.play('default')
 	var score = $"../Canvas/GUI/Score"
@@ -38,20 +41,25 @@ func _input(event: InputEvent) -> void:
 	
 	if event is InputEventMouse:
 		if event.button_mask:
-			var dx = event.position.x - position.x
-			var dy = event.position.y - position.y
-			
-			if abs(dx) > abs(dy):
-				if dx > 0:
-					direction = Vector2.RIGHT
-				else:
-					direction = Vector2.LEFT
+			if not touch_enabled:
+				touch_enabled = true
+				touch_base = event.global_position
 			else:
-				if dy > 0:
-					direction = Vector2.DOWN
+				var delta = event.global_position - touch_base
+				
+				if abs(delta.x) > abs(delta.y):
+					if delta.x > 0:
+						direction = Vector2.RIGHT
+					else:
+						direction = Vector2.LEFT
 				else:
-					direction = Vector2.UP
-	
+					if delta.y > 0:
+						direction = Vector2.DOWN
+					else:
+						direction = Vector2.UP
+		else:
+			touch_enabled = false
+		
 	if event.is_action_pressed('ui_left'):
 		direction = Vector2.LEFT
 	elif event.is_action_pressed('ui_right'):
