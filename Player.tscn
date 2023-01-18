@@ -76,7 +76,7 @@ stream = ExtResource( 3 )
 stream = ExtResource( 5 )
 volume_db = -6.0
 
-[node name="Ouch" type="Label" parent="."]
+[node name="OuchKeyboard" type="Label" parent="."]
 visible = false
 margin_left = -146.0
 margin_top = -29.0
@@ -89,3 +89,17 @@ text = "Ouch!
 That hurt.
 
 [Press SPACE to restart.]"
+
+[node name="OuchTouch" type="Label" parent="."]
+visible = false
+margin_left = -146.0
+margin_top = -29.0
+margin_right = 147.0
+margin_bottom = 80.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 0.498039 )
+custom_fonts/font = SubResource( 145 )
+text = "Ouch!
+That hurt.
+
+[Swipe to restart.]"

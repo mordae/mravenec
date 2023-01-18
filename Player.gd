@@ -20,31 +20,56 @@ func die() -> void:
 	dead = true
 	collision_layer = 0
 	$Anim.stop()
-	$Ouch.show()
+	
+	if OS.has_touchscreen_ui_hint():
+		$OuchTouch.show()
+	else:
+		$OuchKeyboard.show()
 
 func _input(event: InputEvent) -> void:
 	if event.is_action('ui_cancel'):
 		get_tree().quit()
 	
 	if dead:
-		if event.is_action('ui_accept'):
+		if event.is_action('ui_accept') or event is InputEventScreenDrag:
 			var res = get_tree().change_scene("res://Level1.tscn")
 			assert(res == OK)
 			Game.reset()
 		
 		return
 	
+	if event is InputEventMouse:
+		if event.button_mask:
+			var dx = event.position.x - position.x
+			var dy = event.position.y - position.y
+			
+			if abs(dx) > abs(dy):
+				if dx > 0:
+					direction = RIGHT
+				else:
+					direction = LEFT
+			else:
+				if dy > 0:
+					direction = DOWN
+				else:
+					direction = UP
+	
 	if event.is_action_pressed('ui_left'):
 		direction = LEFT
-		$Anim.rotation_degrees = -90
 	elif event.is_action_pressed('ui_right'):
 		direction = RIGHT
-		$Anim.rotation_degrees = 90
 	elif event.is_action_pressed('ui_up'):
 		direction = UP
-		$Anim.rotation_degrees = 0
 	elif event.is_action_pressed('ui_down'):
 		direction = DOWN
+	
+	if direction == LEFT:
+		$Anim.rotation_degrees = -90
+	elif direction == RIGHT:
+		$Anim.rotation_degrees = 90
+	elif direction == UP:
+		$Anim.rotation_degrees = 0
+	elif direction == DOWN:
 		$Anim.rotation_degrees = 180
 
 func _physics_process(_delta: float) -> void:
