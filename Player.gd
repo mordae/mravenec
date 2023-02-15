@@ -59,14 +59,14 @@ func _input(event: InputEvent) -> void:
 						direction = Vector2.UP
 		else:
 			touch_enabled = false
-		
-	if event.is_action_pressed('ui_left'):
+	
+	if event.get_action_strength('ui_left') > 0.7:
 		direction = Vector2.LEFT
-	elif event.is_action_pressed('ui_right'):
+	elif event.get_action_strength('ui_right') > 0.7:
 		direction = Vector2.RIGHT
-	elif event.is_action_pressed('ui_up'):
+	elif event.get_action_strength('ui_up') > 0.7:
 		direction = Vector2.UP
-	elif event.is_action_pressed('ui_down'):
+	elif event.get_action_strength('ui_down') > 0.7:
 		direction = Vector2.DOWN
 	
 	if direction == Vector2.LEFT:
